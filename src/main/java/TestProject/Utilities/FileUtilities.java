@@ -1,0 +1,60 @@
+package TestProject.Utilities;
+
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
+public class FileUtilities {
+    private FileUtilities() {
+    }
+
+    public static void deleteFiles(File dirPath) {
+        if (dirPath == null) {
+            return;
+        }
+        File[] fileList = dirPath.listFiles();
+        if (fileList == null) {
+            return;
+        }
+        for (File file : fileList) {
+            //Recursion:If the current file is a directory:So the same method is called again and again at different levels,
+            // and in each call, the files in that level are being deleted using that line:Files.delete(file.toPath())
+            if (file.isDirectory()) {
+                deleteFiles(file);
+            } else
+                try {
+                    Files.delete(file.toPath());
+                } catch (IOException e) {
+                }
+        }
+
+    }
+
+    public static File getLatestFile(String folderPath) {
+        File directory = new File(folderPath);
+        File[] files = directory.listFiles();
+        if (files == null || files.length == 0) {
+            return null;
+        }
+
+        File latestFile = files[0];
+
+        for (File file : files) {
+            if (file.lastModified() > latestFile.lastModified()) {
+                latestFile = file;
+            }
+        }
+
+        return latestFile;
+    }
+
+    public static void cleanDirectory(File file) {
+        try {
+            //I used .deleteQuietly instead of .deleteDirectory to avoid the warning message the says it cannot delete the logs file because it is used by another process
+            FileUtils.deleteQuietly(file);
+        } catch (Exception e) {
+        }
+    }
+}

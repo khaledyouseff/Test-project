@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ListenersTestNG implements IExecutionListener, ITestListener, IInvokedMethodListener {
-    File AllureFile = new File("test-outputs/allure-results");
+    File AllureFile = new File("allure-results");
     File LogseFile = new File("test-outputs/logs");
     File screenshotsFile = new File("test-outputs/screenshots");
 

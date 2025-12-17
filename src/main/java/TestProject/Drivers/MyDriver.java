@@ -1,3 +1,4 @@
+
 package TestProject.Drivers;
 
 import TestProject.Utilities.BrowserActions;
@@ -5,7 +6,6 @@ import TestProject.Utilities.ElementAction;
 import TestProject.Utilities.Validations;
 import org.openqa.selenium.WebDriver;
 
-import static org.testng.Assert.fail;
 
 public class MyDriver {
 
@@ -34,7 +34,6 @@ public class MyDriver {
 
     public WebDriver getMyDriver() {
         if (driverThreadLocal.get() == null) {
-            fail("Driver is null");
             return null;
         }
         return driverThreadLocal.get();
@@ -55,5 +54,3 @@ public class MyDriver {
         return driverThreadLocal.get();
     }
 }
-
-

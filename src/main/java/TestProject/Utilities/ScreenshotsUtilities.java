@@ -43,13 +43,11 @@ public class ScreenshotsUtilities {
         // Capture screenshot
 
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        //String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date()); ceatred a utils class for it
         File screenshotFile = new File(SCREENSHOTS_PATH, screenshotName + "_" +".png");
 
         // Copy screenshot file
         FileUtils.copyFile(screenshot, screenshotFile);
 
-        // Attach screenshot to Allure report
-       // AllureUtilities.attachScreenshotsToAllure(screenshotName, screenshotFile.getPath());
+
     }
 }

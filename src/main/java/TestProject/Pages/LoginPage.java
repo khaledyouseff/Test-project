@@ -2,6 +2,8 @@ package TestProject.Pages;
 import TestProject.Drivers.MyDriver;
 import org.openqa.selenium.By;
 
+import static TestProject.Utilities.PropertiesUtilities.getPropertyValue;
+
 public class LoginPage {
     private final MyDriver driver;
 
@@ -40,8 +42,7 @@ public class LoginPage {
     //Validations
     public LoginPage AssertFailedLogin() {
         driver.validate().AssertEquals(driver.element().GetText(LoginErrorMessage),
-                "You entered an invalid Email and/or Password combination. Please verify " +
-                        "that you entered this information correctly.", "Login Failed");
+                getPropertyValue("Unsuccessful_Login_Error_message"), "Login Failed");
         return new LoginPage(driver);
     }
 

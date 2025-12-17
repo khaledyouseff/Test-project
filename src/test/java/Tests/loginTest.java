@@ -8,6 +8,9 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+
+import static TestProject.Utilities.PropertiesUtilities.getPropertyValue;
+
 @Listeners(ListenersTestNG.class) //Without this line the driver will be null as the properties will not be loaded
 public class loginTest {
 
@@ -15,20 +18,18 @@ public class loginTest {
 
         String browserName;
         MyDriver driver;
-        String FalseEmail = "khaled@gmail.com";
-        String FalsePassword = "123456";
+        String FalseEmail ;
+        String FalsePassword ;
 
         //configurations
 
 
         @BeforeClass // I changed it from before method to before class as i will write more than one method for tests
         public void Setup() {
-
-            browserName = "chrome";
-
+            browserName = getPropertyValue("Browser_Name");
             driver = new MyDriver(browserName);
-
-
+            FalseEmail = getPropertyValue("Invalid_Email");
+             FalsePassword = getPropertyValue("Invalid_Password");
             new LoginPage(driver).GoToLoginPage();
         }
 

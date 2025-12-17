@@ -17,6 +17,7 @@ public class ListenersTestNG implements IExecutionListener, ITestListener, IInvo
 
     @Override
     public void onExecutionStart() {
+        PropertiesUtilities.LoadProperties();
         FileUtilities.deleteFiles(AllureFile);
         FileUtilities.cleanDirectory(screenshotsFile);
     }

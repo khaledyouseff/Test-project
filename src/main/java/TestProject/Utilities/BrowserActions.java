@@ -13,18 +13,6 @@ public class BrowserActions {
         driver.get(URL);
     }
 
-    public  String GetCurrentBrowserURL() {
-        return driver.getCurrentUrl();
-    }
-
-    public  String GetPageTitle() {
-        return driver.getTitle();
-    }
-
-    public  void RefreshPage() {
-        driver.navigate().refresh();
-
-    }
 
     public  void quitBrowser() {
 

@@ -25,7 +25,6 @@ public class Waits {
 
         return new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(driver1 -> driver1.findElement(locator));
-        //.until(WebDriver::findElement); instead of .until(driver1 -> driver1.findElement(locator));
     }
 
 

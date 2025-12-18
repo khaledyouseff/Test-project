@@ -3,6 +3,7 @@ package Tests;
 import TestProject.Drivers.MyDriver;
 import TestProject.Listeners.ListenersTestNG;
 import TestProject.Pages.LoginPage;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -43,5 +44,12 @@ public class loginTest {
                     ClickLoginButton().AssertFailedLogin();
 
         }
+
+
+    @AfterClass
+    public void TearDown() {
+        driver.browser().quitBrowser();
+
+    }
     }
 

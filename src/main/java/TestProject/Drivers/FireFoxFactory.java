@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class FireFoxFactory extends AbstractDriver implements WebDriverOptionsAbstract<FirefoxOptions>{
     @Override
     public FirefoxOptions getOptions() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments("--start-maximized");
         firefoxOptions.addArguments("--disable-notifications");

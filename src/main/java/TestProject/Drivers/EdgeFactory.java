@@ -11,7 +11,7 @@ public class EdgeFactory extends AbstractDriver
     @Override
     public EdgeOptions getOptions() {
 
-     //   WebDriverManager.edgedriver().setup();
+       WebDriverManager.edgedriver().setup();
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.addArguments(
                 "--start-maximized",
